@@ -1,0 +1,260 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+main { 
+    color: whitesmoke;
+    background-color: rgb(26, 25, 25);
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
+    grid-auto-rows: minmax(min-content, auto);
+    gap: 12px;
+    width: 98vw;
+    height: 98vh;
+    margin: 1vh 1vw;
+    padding: 20px;
+    box-shadow: 0 0 70px black;
+    overflow-y: auto;
+    max-height: 98vh;
+}
+
+input, select, textarea {
+    width: 90%;
+    max-width: 100%;
+    padding: 5px;
+    margin: 4px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(45, 45, 45);
+    color: whitesmoke;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    background-color: rgb(55, 55, 55);
+}
+
+/* Estiliza o painel de classes */
+#classPanel {
+    margin-top: 10px !important;
+    padding: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.2);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#classTitle {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+#classDesc {
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #bbb;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Botões do painel */
+#applyPerksBtn, #undoPerksBtn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9em;
+}
+
+#applyPerksBtn {
+    background-color: #2a6b2a;
+    color: white;
+}
+
+#applyPerksBtn:hover:not(:disabled) {
+    background-color: #378137;
+}
+
+#undoPerksBtn {
+    background-color: #6b2a2a;
+    color: white;
+}
+
+#undoPerksBtn:hover:not(:disabled) {
+    background-color: #813737;
+}
+
+#applyPerksBtn:disabled, #undoPerksBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Coluna 1 - Informações básicas */
+.div1 {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.div2 {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+}
+
+.div3 {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+/* Coluna 1-2 - Raça, Classe, Background */
+.div4 {
+    grid-column: 1 / 3;
+    grid-row: 4;
+}
+
+.div5 {
+    grid-column: 1 / 3;
+    grid-row: 5;
+}
+
+.div6 {
+    grid-column: 1 / 3;
+    grid-row: 6;
+}
+
+/* Coluna 1 - Habilidades */
+.div7 {
+    grid-column: 1 / 3;
+    grid-row: 7;
+}
+
+.div8 {
+    grid-column: 1 / 3;
+    grid-row: 8;
+}
+
+.div9 {
+    grid-column: 1 / 3;
+    grid-row: 9;
+}
+
+/* Coluna 5 - Equipamentos */
+.div10 {
+    grid-column: 5;
+    grid-row: 5;
+}
+
+.div11 {
+    grid-column: 5;
+    grid-row: 6;
+}
+
+.div12 {
+    grid-column: 5;
+    grid-row: 7;
+}
+
+/* Coluna 3 - Stats principais */
+.div13 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.div14 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.div15 {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.div16 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.div17 {
+    grid-column: 3;
+    grid-row: 5;
+}
+
+.div18 {
+    grid-column: 4;
+    grid-row: 3;
+}
+
+/* Coluna 4 - Stats secundários */
+.div19 {
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.div20 {
+    grid-column: 4;
+    grid-row: 5;
+}
+
+/* EGO e outros */
+.div21 {
+    grid-column: 3 / 5;
+    grid-row: 6 / 8;
+}
+
+/* Range slider personalizado */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: #444;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #666;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #888;
+}
+
+/* Espaçamento e alinhamento geral */
+div[class^="div"] {
+    padding: 12px;
+    min-height: min-content;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Estilo para o texto descritivo */
+div[class^="div"] > :first-child {
+    margin-bottom: 6px;
+    color: #bbb;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+/* Ajustes para textarea */
+textarea {
+    resize: none;
+    height: 100px;
+}
