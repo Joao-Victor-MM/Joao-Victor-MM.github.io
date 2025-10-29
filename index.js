@@ -47,14 +47,141 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mantém o comportamento original do range também em 'input'
+    // Controles de sanidade
     const range = document.getElementById('rangeInput');
-    const rangeValue = document.getElementById('rangeValue');
-    if (range && rangeValue) {
+    const sanidadeAtual = document.getElementById('sanidadeAtual');
+    const sanidadePlus = document.getElementById('sanidadeplus');
+    const minus5 = document.getElementById('minus5');
+    const minus1 = document.getElementById('minus1');
+    const plus1 = document.getElementById('plus1');
+    const plus5 = document.getElementById('plus5');
+
+    // Configuração inicial
+    if (range && sanidadeAtual && sanidadePlus) {
+        // Define valor máximo inicial
+        const maxInicial = parseInt(sanidadePlus.value) || 100;
+        sanidadePlus.value = maxInicial;
+        range.max = maxInicial;
+
+        // Pega valor inicial da sanidade
+        const valorInicial = parseInt(range.value) || 50;
+        range.value = valorInicial;
+        sanidadeAtual.value = valorInicial;
+    }
+
+    function atualizarSanidade(novoValor) {
+        if (!range || !sanidadeAtual || !sanidadePlus) return;
+        
+        const max = parseInt(sanidadePlus.value) || 100;
+        // Limita entre 0 e o máximo
+        novoValor = Math.max(0, Math.min(max, parseInt(novoValor) || 0));
+        
+        // Atualiza todos os campos
+        range.value = novoValor;
+        sanidadeAtual.value = novoValor;
+        
+        // Salva no localStorage
+        localStorage.setItem('persist:input:sanidadeAtual', novoValor.toString());
+        localStorage.setItem('persist:input:rangeInput', novoValor.toString());
+    }
+
+    // Sincroniza range com input numérico
+    if (range) {
         range.addEventListener('input', function() {
-            rangeValue.textContent = range.value + '%';
+            atualizarSanidade(this.value);
         });
     }
+
+    if (sanidadeAtual) {
+        sanidadeAtual.addEventListener('change', function() {
+            atualizarSanidade(this.value);
+        });
+    }
+
+    // Configura máximo da sanidade
+    if (sanidadePlus) {
+        sanidadePlus.addEventListener('change', function() {
+            if (!range) return;
+            
+            const novoMaximo = parseInt(this.value) || 100;
+            range.max = novoMaximo;
+            localStorage.setItem('persist:input:sanidadeplus', novoMaximo.toString());
+            
+            // Ajusta valor atual se necessário
+            const atual = parseInt(sanidadeAtual?.value) || 0;
+            if (atual > novoMaximo) {
+                atualizarSanidade(novoMaximo);
+            }
+        });
+
+        // Restaura máximo salvo
+        const maxSalvo = localStorage.getItem('persist:input:sanidadeplus');
+        if (maxSalvo !== null) {
+            sanidadePlus.value = maxSalvo;
+            range.max = parseInt(maxSalvo);
+        }
+    }
+
+    // Botões de controle
+    if (minus5) {
+        minus5.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual?.value) || 0;
+            atualizarSanidade(atual - 5);
+        });
+    }
+
+    if (minus1) {
+        minus1.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual?.value) || 0;
+            atualizarSanidade(atual - 1);
+        });
+    }
+
+    if (plus1) {
+        plus1.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual?.value) || 0;
+            atualizarSanidade(atual + 1);
+        });
+    }
+
+    if (plus5) {
+        plus5.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual?.value) || 0;
+            atualizarSanidade(atual + 5);
+        });
+    }
+        });
+    
+
+    // Botões de controle
+    if (minus5) {
+        minus5.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual.value) || 0;
+            atualizarSanidade(atual - 5);
+        });
+    }
+
+    if (minus1) {
+        minus1.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual.value) || 0;
+            atualizarSanidade(atual - 1);
+        });
+    }
+
+    if (plus1) {
+        plus1.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual.value) || 0;
+            atualizarSanidade(atual + 1);
+        });
+    }
+
+    if (plus5) {
+        plus5.addEventListener('click', () => {
+            const atual = parseInt(sanidadeAtual.value) || 0;
+            atualizarSanidade(atual + 5);
+        });
+    }
+    
 
     // --- Interações de classes / perks (implementado 100% em JS) ---
     const classSelect = document.getElementById('classes');
@@ -379,5 +506,4 @@ document.addEventListener('DOMContentLoaded', () => {
             appliedClass = null;
             applyBtn.disabled = false;
         });
-    }
-});
+    };
