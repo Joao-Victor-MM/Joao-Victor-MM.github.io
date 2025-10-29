@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DND 2</title>
+</head>
+<body>
+        <main>
+            <div class="div1">
+                Nome:
+                <br>
+                <input type="text" placeholder="Nome" id="nome">
+            </div>
+
+            <div class="div2">
+                Descrição:
+                <br>
+                <textarea name="bio" id="descricao" placeholder="Coloque as descrições do seu personagem"></textarea>
+            </div>
+
+            <div class="div3">
+                Gold:
+                <br>
+                <input type="number" id="gold" value="10">
+            </div>
+
+            <div class="div4">
+                Raça:
+                <br>
+                <select name="race" id="raca">
+                    <option value="Humano">Humano</option>
+                    <option value="Elfo">Elfo</option>
+                    <option value="Halfling">Halfling</option>
+                    <option value="Gigante">Gigante</option>
+                    <option value="Golem Elemental">Golem Elemental</option>
+                    <option value="Meio-Aranha">Meio-Aranha</option>
+                    <option value="Fada">Fada</option>
+                    <option value="Criatura de Sangue">Criatura de Sangue</option>
+                    <option value="Meio-Dragão">Meio-Dragão</option>
+                    <option value="Meio-Demônio">Meio-Demônio</option>
+                    <option value="Semideus">Semideus</option>
+                    <option value="Meio-Anjo">Meio-Anjo</option>
+                    <option value="Kitsune">Kitsune</option>
+                </select>
+            </div>
+
+            <div class="div5">
+                Classes:
+                <br>
+                <select name="class" id="classes">
+                    <option value="Fixer">Fixer</option>
+                    <option value="Cleaner">Cleaner</option>
+                    <option value="Rabbit">Rabbit</option>
+                    <option value="Rhino">Rhino</option>
+                    <option value="Reindeer">Reindeer</option>
+                    <option value="Edgar Family Butler">Edgar Family Butler</option>
+                    <option value="The pequod sailor">The pequod sailor</option>
+                    <option value="Performer" id="Perfomer" hidden>Performer</option>
+                </select>
+            </div>
+
+            <div class="div6">
+                Background:
+                <br>
+                <select name="bg1" id="bg1">
+                    <option value="Elemental">Elemental</option>
+                    <option value="Nobility">Nobility</option>
+                    <option value="##">###</option>
+                    <option value="Test subject">Test subject</option>
+                    <option value="Sailor">Sailor</option>
+                </select>
+                <select name="bg1" id="bg1">
+                    <option value=""></option>
+                    <option value="Elemental">Elemental</option>
+                    <option value="Nobility">Nobility</option>
+                    <option value="##">###</option>
+                    <option value="Test subject">Test subject</option>
+                    <option value="Sailor">Sailor</option>
+                </select>
+                <select name="bg1" id="bg1">
+                    <option value=""></option>
+                    <option value="Elemental">Elemental</option>
+                    <option value="Nobility">Nobility</option>
+                    <option value="##">###</option>
+                    <option value="Test subject">Test subject</option>
+                    <option value="Sailor">Sailor</option>
+                </select>
+            </div>
+
+            <div class="div7">
+                Habilidade 1:
+                <br>
+                <input type="text" placeholder="Habilidade 1" id="habilidade1">
+            </div>
+
+            <div class="div8">
+                Habilidade 2:
+                <br>
+                <input type="text" placeholder="Habilidade 2" id="habilidade2">
+            </div>
+
+            <div class="div9">
+                Habilidade 3:
+                <br>
+                <input type="text" placeholder="Habilidade 3" id="habilidade3">
+            </div>
+
+            <div class="div10">
+                Armor:
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="div11">
+                Hand:
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="div12">
+                Offhand:
+                <br>
+                <input type="text">
+            </div>
+
+            <div class="div13">
+                Força:
+                <br>
+                <input type="number" value="0">
+            </div>
+
+            <div class="div14">
+                Vida:
+                <br>
+                <input type="number" value="0">
+            </div> 
+
+            <div class="div15">
+                Durabilidade:
+                <br>
+                <input type="number" value="0">
+            </div>
+
+            <div class="div16">
+                Velocidade:
+                <br>
+                <input type="number" value="0">
+            </div>
+
+            <div class="div17">
+                Carisma/Intimidação:
+                <br>
+                <input type="number" value="0">
+            </div>
+
+            <div class="div18">
+                Inteligência:
+                <br>
+                <input type="number" value="0">
+            </div>
+
+            <div class="div19">
+                Proficiência:
+                <br>
+                <input type="number" value="0">
+            </div>
+
+            <div class="div20">
+                Sanidade:
+                <br>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="display: flex; flex-direction: column; gap: 4px; flex: 1;">
+                        <input type="range" id="rangeInput" min="0" max="100" value="50">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <button id="minus5" title="Diminuir 5">-5</button>
+                            <button id="minus1" title="Diminuir 1">-1</button>
+                            <input type="number" id="sanidadeAtual" value="50" style="width: 60px;">
+                            <button id="plus1" title="Aumentar 1">+1</button>
+                            <button id="plus5" title="Aumentar 5">+5</button>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <span>Máx:</span>
+                        <input type="number" value="100" placeholder="Máx" id="sanidadeplus" style="width: 70px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="div21">
+                E.G.O:
+                <br>
+                <select name="ego" id="ego">
+                    <option value="ZAYIN">ZAYIN</option>
+                    <option value="TETH">TETH</option>
+                    <option value="HE">HE</option>
+                    <option value="WAW">WAW</option>
+                    <option value="ALEPH">ALEPH</option>
+                </select>
+            </div>
+        </main>
+
+         <script src="index.js"></script>
+</body>
+</html>
