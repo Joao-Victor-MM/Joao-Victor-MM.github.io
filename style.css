@@ -210,6 +210,31 @@ input:focus, select:focus, textarea:focus {
     grid-row: 6 / 8;
 }
 
+/* Controles de sanidade */
+.div20 button {
+    background-color: #444;
+    border: 1px solid #666;
+    color: whitesmoke;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9em;
+    min-width: 32px;
+}
+
+.div20 button:hover {
+    background-color: #555;
+}
+
+.div20 button:active {
+    background-color: #333;
+}
+
+.div20 input[type="number"] {
+    text-align: center;
+}
+
 /* Range slider personalizado */
 input[type="range"] {
     -webkit-appearance: none;
@@ -218,6 +243,7 @@ input[type="range"] {
     border-radius: 4px;
     background: #444;
     outline: none;
+    width: 100%;
 }
 
 input[type="range"]::-webkit-slider-thumb {
